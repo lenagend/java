@@ -1,3 +1,5 @@
+package 람다연습;
+
 public class LambdaRunnable {
     public static void main(String[] args) {
         Runnable r1 = () -> System.out.println("안녕하세요");

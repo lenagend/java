@@ -1,3 +1,5 @@
+package 람다연습;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

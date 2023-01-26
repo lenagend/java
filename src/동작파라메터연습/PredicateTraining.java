@@ -1,3 +1,5 @@
+package 동작파라메터연습;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;

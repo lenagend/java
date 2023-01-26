@@ -1,3 +1,5 @@
+package 동작파라메터연습;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
