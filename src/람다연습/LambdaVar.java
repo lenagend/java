@@ -1,3 +1,5 @@
+package 람다연습;
+
 public class LambdaVar {
     public static void main(String[] args) {
         int number = 135;
