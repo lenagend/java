@@ -3,7 +3,7 @@ package 알고리즘;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Dfs {
+public class Dfs { //깊이우선탐색
     static class Graph {
         int vertices;                    // 정점의 수
         List<List<Integer>> adjList;     // 인접 리스트
