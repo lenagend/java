@@ -1,5 +1,6 @@
 package 알고리즘;
 
+
 import java.util.Scanner;
 
 public class Doit1번문제 {
