@@ -10,7 +10,7 @@ public class Doit1번문제 {
         String sNum = sc.next();
         char[] cNum = sNum.toCharArray();
         int sum = 0;
-        for(int i = 0; i < cNum.length; i ++){
+        for(int i = 0; i < N; i ++){
             sum += cNum[i] - '0';
         }
         System.out.print(sum);
