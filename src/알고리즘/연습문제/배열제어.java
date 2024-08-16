@@ -1,7 +1,6 @@
 package 알고리즘.연습문제;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class 배열제어 {
     public static void main(String[] args) {
