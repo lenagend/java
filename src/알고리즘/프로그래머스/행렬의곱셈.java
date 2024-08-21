@@ -8,10 +8,9 @@ public class 행렬의곱셈 {
 
         int[][] answer = new int[rows1][cols2];  // 결과 행렬의 크기는 arr1의 행 개수 x arr2의 열 개수
 
-        // 행렬 곱셈 수행
-        for (int i = 0; i < rows1; i++) {
-            for (int j = 0; j < cols2; j++) {
-                for (int k = 0; k < cols1; k++) {
+        for(int i = 0; i < rows1; i++){
+            for(int j = 0; j < cols2; j++){
+                for(int k = 0; k < cols1; k++){
                     answer[i][j] += arr1[i][k] * arr2[k][j];
                 }
             }
