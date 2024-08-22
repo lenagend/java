@@ -1,28 +1,45 @@
 package 알고리즘.프로그래머스;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class 실패율 {
     public int[] solution(int N, int[] stages) {
-        int[] fail = new int[N+1];
-        int[] success = new int[N+1];
 
-        for(int i = 1; i <= stages.length; i ++){
-            fail[stages[i]] ++;
-            for(int j = 1; j <= stages[i]; j++){
-                success[j] ++;
+        int[] stageCount = new int[N + 2];
+
+        for(int stage : stages){
+            stageCount[stage]++;
+        }
+        List<StageInfo> failureRates  = new ArrayList<>();
+        int totalPlayers = stages.length;
+
+        for(int i = 1; i <= N; i++){
+            if (totalPlayers == 0){
+                failureRates.add(new StageInfo(i, 0));
+            }else{
+                double failureRate = (double) stageCount[i] / totalPlayers;
+                failureRates.add(new StageInfo(i, failureRate));
+                totalPlayers -= stageCount[i];
             }
         }
 
+
+        failureRates.sort((a, b)->{
+            if(b.failureRate == a.failureRate){
+                return a.stageNumber - b.stageNumber;
+            }else{
+                return Double.compare(b.failureRate, a.failureRate);
+            }
+        });
+
         int[] result = new int[N];
 
-        for(int i = 1; i <= N; i ++){
-            result[i-1] = fail[i] / success[i];
+        for(int i = 0; i < N; i ++){
+            result[i] = failureRates.get(i).stageNumber;
         }
 
-        result.s
-
-        int[] answer = new int[N];
-
-        return answer;
+        return result;
     }
 
     public static void main(String[] args) {
@@ -35,4 +52,14 @@ public class 실패율 {
             System.out.print(result[i] + " ");
         }
     }
+    class StageInfo{
+        int stageNumber;
+        double failureRate;
+
+        StageInfo(int stageNumber, double failureRate) {
+            this.stageNumber = stageNumber;
+            this.failureRate = failureRate;
+        }
+    }
 }
+
