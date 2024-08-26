@@ -5,37 +5,34 @@ public class Q1253 {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int[] nums = new int[N];
-        for(int i = 0; i < N; i++){
+        for(int i = 0; i < N; i ++){
             nums[i] = sc.nextInt();
         }
         Arrays.sort(nums);
-        int result = 0;
-        for(int i = 0; i < N; i++){
-            int find = nums[i];
+        int answer = 0;
+        for(int i = 0; i < N; i ++){
             int left = 0;
             int right = N - 1;
-            while (left < right) {
-                if (left == i) {
+            while(left < right){
+                if(nums[left] == nums[i]){
                     left++;
                     continue;
                 }
-                if (right == i) {
+                if(nums[right] == nums[i]){
                     right--;
                     continue;
                 }
-
-                int sum = nums[left] + nums[right];
-
-                if (sum == find) {
-                    result++;
-                    break;  // 같은 수에 대해 중복을 피하기 위해
-                } else if (sum < find) {
+                int sum = nums[left]+nums[right];
+                if(sum==nums[i]){
+                    answer++;
+                    break;
+                }else if(sum < nums[i]){
                     left++;
-                } else {
+                }else{
                     right--;
                 }
             }
         }
-        System.out.println(result);
+        System.out.println(answer);
     }
 }
