@@ -5,65 +5,41 @@ import java.util.*;
 public class 방문길이 {
     public static void main(String[] args) {
         방문길이 q = new 방문길이();
-        int result = q.solution("ULURRDLLU");
+        int result = q.solution("LULLLLLLU");
         System.out.println(result);
     }
-    public int solution(String dirs) {
-        Route[][] map = new Route[10][10];
 
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                Route route = new Route(
-                        false,
-                        i-5,
-                        j-5
-                );
-                map[i][j] = route;
+    public int solution(String dirs) {
+        int x = 0;
+        int y = 0;
+
+        Set<String> history = new HashSet<>();
+
+        for(char dir : dirs.toCharArray()){
+
+            String start = x + "," + y;
+
+            if(dir == 'U' && y < 5){
+                y++;
+            } else if(dir == 'D' && y > -5){
+                y--;
+            } else if(dir == 'R' && x < 5){
+                x++;
+            } else if(dir == 'L' && x > -5){
+                x--;
+            }
+
+            String end = x + "," + y;
+            String route = start + "to" + end;
+            String reverseRoute = end + "to" + start;
+
+            if(!history.contains(route) && !history.contains(reverseRoute)) {
+                history.add(route);
+                history.add(reverseRoute);
             }
         }
 
-        Route current = map[5][5];
-
-        for(char direction : dirs.toCharArray()){
-
-        }
-
-
-        int answer = 0;
-        return answer;
+        return history.size() / 2;
     }
-    class Route{
-        boolean visited;
-        int x;
-        int y;
-        Route(boolean visited, int x, int y){
-            this.visited = visited;
-            this.x = x;
-            this.y = y;
-        }
 
-        public boolean isVisited() {
-            return visited;
-        }
-
-        public void setVisited(boolean visited) {
-            this.visited = visited;
-        }
-
-        public int getX() {
-            return x;
-        }
-
-        public void setX(int x) {
-            this.x = x;
-        }
-
-        public int getY() {
-            return y;
-        }
-
-        public void setY(int y) {
-            this.y = y;
-        }
-    }
 }
