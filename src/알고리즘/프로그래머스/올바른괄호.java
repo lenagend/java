@@ -19,7 +19,7 @@ public class 올바른괄호 {
         for(char c : s.toCharArray()){
             if(c == '('){
                 stack.push(c);
-            }else{ 
+            }else{
                 if(stack.isEmpty()){
                     return false;
                 }
