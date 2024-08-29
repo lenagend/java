@@ -16,20 +16,16 @@ public class 올바른괄호 {
     }
     boolean solution(String s) {
         Stack<Character> stack = new Stack<>();
-
-        for (char c : s.toCharArray()) {
-            if (c == '(') {
+        for(char c : s.toCharArray()){
+            if(c == '('){
                 stack.push(c);
-            } else {
-                // 스택이 비어있으면 올바르지 않은 괄호
-                if (stack.isEmpty()) {
-                    return false;
+            }else{
+                if(!stack.isEmpty()){
+                    stack.pop();
                 }
-                stack.pop();
             }
         }
 
-        // 스택이 비어있다면 모든 괄호가 올바르게 짝지어졌음을 의미
         return stack.isEmpty();
     }
 }
