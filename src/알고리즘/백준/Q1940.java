@@ -7,29 +7,31 @@ public class Q1940 {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int M = sc.nextInt();
-        int[] nums = new int[N];
 
-        for (int i = 0; i < N; i++) {
+        int[] nums = new int[N];
+        for(int i = 0; i < N; i ++){
             nums[i] = sc.nextInt();
         }
 
         Arrays.sort(nums);
+
         int count = 0;
         int left = 0;
-        int right = N - 1;
+        int right = N-1;
 
-        while (left < right) {
+
+        while (left < right){
             int sum = nums[left] + nums[right];
-
-            if (sum == M) {
+            if(sum == M){
                 count++;
                 left++;
                 right--;
-            } else if (sum < M) {
+            }else if(sum < M){
                 left++;
-            } else {
+            }else{
                 right--;
             }
+
         }
 
         System.out.println(count);
